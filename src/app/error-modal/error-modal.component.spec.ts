@@ -8,8 +8,8 @@ describe('ErrorModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ErrorModalComponent]
-    })
+    imports: [ErrorModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(ErrorModalComponent);

@@ -3,11 +3,19 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { EPG } from "../models/epg";
 import { invoke } from "@tauri-apps/api/core";
 import { MemoryService } from "../memory.service";
+import { EpgModalItemComponent } from "./epg-modal-item/epg-modal-item.component";
+import { NgFor, NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-epg-modal",
-  templateUrl: "./epg-modal.component.html",
-  styleUrl: "./epg-modal.component.css",
+    selector: "app-epg-modal",
+    templateUrl: "./epg-modal.component.html",
+    styleUrl: "./epg-modal.component.css",
+    standalone: true,
+    imports: [
+        NgFor,
+        NgClass,
+        EpgModalItemComponent,
+    ],
 })
 export class EpgModalComponent implements OnInit {
   name?: string;

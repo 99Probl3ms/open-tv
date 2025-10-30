@@ -8,8 +8,8 @@ describe('EditChannelModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EditChannelModalComponent]
-    })
+    imports: [EditChannelModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(EditChannelModalComponent);

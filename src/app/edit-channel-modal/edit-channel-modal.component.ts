@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbTypeaheadSelectItemEvent, NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { CustomChannel } from '../models/customChannel';
 import { MediaType } from '../models/mediaType';
 import { Channel, invoke } from '@tauri-apps/api/core';
@@ -9,11 +9,15 @@ import { combineLatest, debounceTime, distinctUntilChanged, filter, from, map, O
 import { IdName } from '../models/idName';
 import { CustomChanelExtraData } from '../models/customChannelExtraData';
 import { ErrorService } from '../error.service';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-channel-modal',
-  templateUrl: './edit-channel-modal.component.html',
-  styleUrl: './edit-channel-modal.component.css'
+    selector: 'app-edit-channel-modal',
+    templateUrl: './edit-channel-modal.component.html',
+    styleUrl: './edit-channel-modal.component.css',
+    standalone: true,
+    imports: [NgIf, FormsModule, NgbTypeahead]
 })
 export class EditChannelModalComponent implements OnInit {
   channel: CustomChannel = {

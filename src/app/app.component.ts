@@ -1,10 +1,19 @@
 import { Component, HostListener } from "@angular/core";
 import { DownloadService } from "./download.service";
+import { DownloadManagerComponent } from "./download-manager/download-manager.component";
+import { NgIf } from "@angular/common";
+import { RouterOutlet } from "@angular/router";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrl: "./app.component.css",
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrl: "./app.component.css",
+    standalone: true,
+    imports: [
+        RouterOutlet,
+        NgIf,
+        DownloadManagerComponent,
+    ],
 })
 export class AppComponent {
   title = "open-tv";

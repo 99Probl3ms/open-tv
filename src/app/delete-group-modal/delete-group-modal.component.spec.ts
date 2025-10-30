@@ -8,8 +8,8 @@ describe('DeleteGroupModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeleteGroupModalComponent]
-    })
+    imports: [DeleteGroupModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(DeleteGroupModalComponent);

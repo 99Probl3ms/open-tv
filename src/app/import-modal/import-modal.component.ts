@@ -3,11 +3,14 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { open } from "@tauri-apps/plugin-dialog";
 import { invoke } from "@tauri-apps/api/core";
 import { MemoryService } from "../memory.service";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: "app-import-modal",
-  templateUrl: "./import-modal.component.html",
-  styleUrl: "./import-modal.component.css",
+    selector: "app-import-modal",
+    templateUrl: "./import-modal.component.html",
+    styleUrl: "./import-modal.component.css",
+    standalone: true,
+    imports: [FormsModule],
 })
 export class ImportModalComponent {
   source_id?: number;

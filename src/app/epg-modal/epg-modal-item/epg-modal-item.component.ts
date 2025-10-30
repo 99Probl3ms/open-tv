@@ -11,11 +11,19 @@ import { Subscription, take } from "rxjs";
 import { Download } from "../../models/download";
 import { save } from "@tauri-apps/plugin-dialog";
 import { getDateFormatted, getExtension, sanitizeFileName } from "../../utils";
+import { NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
+import { NgIf, NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-epg-modal-item",
-  templateUrl: "./epg-modal-item.component.html",
-  styleUrl: "./epg-modal-item.component.css",
+    selector: "app-epg-modal-item",
+    templateUrl: "./epg-modal-item.component.html",
+    styleUrl: "./epg-modal-item.component.css",
+    standalone: true,
+    imports: [
+        NgIf,
+        NgbTooltip,
+        NgClass,
+    ],
 })
 export class EpgModalItemComponent implements OnDestroy {
   constructor(

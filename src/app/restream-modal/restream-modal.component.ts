@@ -8,11 +8,19 @@ import { UnlistenFn, listen } from "@tauri-apps/api/event";
 import { save } from "@tauri-apps/plugin-dialog";
 import { sanitizeFileName } from "../utils";
 import { CHANNEL_EXTENSION } from "../models/extensions";
+import { FormsModule } from "@angular/forms";
+import { NgIf, NgFor } from "@angular/common";
 
 @Component({
-  selector: "app-restream-modal",
-  templateUrl: "./restream-modal.component.html",
-  styleUrl: "./restream-modal.component.css",
+    selector: "app-restream-modal",
+    templateUrl: "./restream-modal.component.html",
+    styleUrl: "./restream-modal.component.css",
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        FormsModule,
+    ],
 })
 export class RestreamModalComponent implements OnInit, OnDestroy {
   channel?: Channel;

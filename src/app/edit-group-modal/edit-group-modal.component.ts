@@ -4,11 +4,16 @@ import { Group } from '../models/group';
 import { ErrorService } from '../error.service';
 import { invoke } from '@tauri-apps/api/core';
 import { MemoryService } from '../memory.service';
+import { GroupNameExistsValidator } from './validators/group-name-exists.directive';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-group-modal',
-  templateUrl: './edit-group-modal.component.html',
-  styleUrl: './edit-group-modal.component.css'
+    selector: 'app-edit-group-modal',
+    templateUrl: './edit-group-modal.component.html',
+    styleUrl: './edit-group-modal.component.css',
+    standalone: true,
+    imports: [NgIf, FormsModule, GroupNameExistsValidator]
 })
 export class EditGroupModalComponent {
   editing: boolean = false;

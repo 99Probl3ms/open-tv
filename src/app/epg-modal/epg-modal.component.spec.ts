@@ -8,8 +8,8 @@ describe('EpgModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EpgModalComponent]
-    })
+    imports: [EpgModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(EpgModalComponent);

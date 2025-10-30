@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgbActiveModal, NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbTypeaheadSelectItemEvent, NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { debounceTime, distinctUntilChanged, filter, from, map, Observable, switchMap } from 'rxjs';
 import { IdName } from '../models/idName';
 import { invoke } from '@tauri-apps/api/core';
@@ -7,11 +7,14 @@ import { Channel } from '../models/channel';
 import { Group } from '../models/group';
 import { ErrorService } from '../error.service';
 import { MemoryService } from '../memory.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-delete-group-modal',
-  templateUrl: './delete-group-modal.component.html',
-  styleUrl: './delete-group-modal.component.css'
+    selector: 'app-delete-group-modal',
+    templateUrl: './delete-group-modal.component.html',
+    styleUrl: './delete-group-modal.component.css',
+    standalone: true,
+    imports: [FormsModule, NgbTypeahead]
 })
 export class DeleteGroupModalComponent {
   loading: boolean = false;

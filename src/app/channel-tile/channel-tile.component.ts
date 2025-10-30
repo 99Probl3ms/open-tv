@@ -7,7 +7,7 @@ import {
   Renderer2,
   ViewChild,
 } from "@angular/core";
-import { MatMenuTrigger } from "@angular/material/menu";
+import { MatMenuTrigger, MatMenu, MatMenuContent, MatMenuItem } from "@angular/material/menu";
 import { Channel } from "../models/channel";
 import { MemoryService } from "../memory.service";
 import { MediaType } from "../models/mediaType";
@@ -28,11 +28,21 @@ import { save } from "@tauri-apps/plugin-dialog";
 import { CHANNEL_EXTENSION, GROUP_EXTENSION, RECORD_EXTENSION } from "../models/extensions";
 import { getDateFormatted, getExtension, sanitizeFileName } from "../utils";
 import { NodeType, fromMediaType } from "../models/nodeType";
+import { NgClass, NgIf } from "@angular/common";
 
 @Component({
-  selector: "app-channel-tile",
-  templateUrl: "./channel-tile.component.html",
-  styleUrl: "./channel-tile.component.css",
+    selector: "app-channel-tile",
+    templateUrl: "./channel-tile.component.html",
+    styleUrl: "./channel-tile.component.css",
+    standalone: true,
+    imports: [
+        NgClass,
+        NgIf,
+        MatMenuTrigger,
+        MatMenu,
+        MatMenuContent,
+        MatMenuItem,
+    ],
 })
 export class ChannelTileComponent implements OnDestroy, AfterViewInit {
   constructor(

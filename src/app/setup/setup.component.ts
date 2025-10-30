@@ -1,6 +1,6 @@
 import { Component, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
 import { invoke } from "@tauri-apps/api/core";
 import { SourceType } from "../models/sourceType";
@@ -10,11 +10,26 @@ import { ConfirmModalComponent } from "./confirm-modal/confirm-modal.component";
 import { MemoryService } from "../memory.service";
 import { ErrorService } from "../error.service";
 import { ConfirmDeleteModalComponent } from "../confirm-delete-modal/confirm-delete-modal.component";
+import { LoadingComponent } from "../loading/loading.component";
+import { NotEmptyValidatorDirective } from "./validators/not-empty-validator.directive";
+import { SourceNameExistsValidator } from "./validators/source-name-exists-validator.directive";
+import { FormsModule } from "@angular/forms";
+import { NgIf, NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-setup",
-  templateUrl: "./setup.component.html",
-  styleUrl: "./setup.component.css",
+    selector: "app-setup",
+    templateUrl: "./setup.component.html",
+    styleUrl: "./setup.component.css",
+    standalone: true,
+    imports: [
+        NgIf,
+        NgbTooltip,
+        NgClass,
+        FormsModule,
+        SourceNameExistsValidator,
+        NotEmptyValidatorDirective,
+        LoadingComponent,
+    ],
 })
 export class SetupComponent {
   constructor(

@@ -7,14 +7,26 @@ import { open } from "@tauri-apps/plugin-dialog";
 import { Source } from "../models/source";
 import { MemoryService } from "../memory.service";
 import { ViewMode } from "../models/viewMode";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmDeleteModalComponent } from "../confirm-delete-modal/confirm-delete-modal.component";
 import { SORT_TYPES, SortType, getSortTypeText } from "../models/sortType";
+import { SourceTileComponent } from "./source-tile/source-tile.component";
+import { FormsModule } from "@angular/forms";
+import { NgIf, NgFor, NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-settings",
-  templateUrl: "./settings.component.html",
-  styleUrl: "./settings.component.css",
+    selector: "app-settings",
+    templateUrl: "./settings.component.html",
+    styleUrl: "./settings.component.css",
+    standalone: true,
+    imports: [
+        NgbTooltip,
+        NgIf,
+        FormsModule,
+        NgFor,
+        NgClass,
+        SourceTileComponent,
+    ],
 })
 export class SettingsComponent {
   subscriptions: Subscription[] = [];

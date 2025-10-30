@@ -8,8 +8,8 @@ describe('DownloadManagerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DownloadManagerComponent]
-    })
+    imports: [DownloadManagerComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(DownloadManagerComponent);

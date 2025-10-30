@@ -8,8 +8,8 @@ describe('WhatsNewModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WhatsNewModalComponent]
-    })
+    declarations: [WhatsNewModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(WhatsNewModalComponent);

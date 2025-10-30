@@ -8,8 +8,8 @@ describe('RestreamModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RestreamModalComponent]
-    })
+    imports: [RestreamModalComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(RestreamModalComponent);

@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from "@angular/core";
 import { Router } from "@angular/router";
-import { AllowIn, ShortcutInput } from "ng-keyboard-shortcuts";
+import { AllowIn, ShortcutInput, KeyboardShortcutsModule } from "ng-keyboard-shortcuts";
 import {
   Subscription,
   debounceTime,
@@ -40,39 +40,47 @@ import { isInputFocused } from "../utils";
 import { Node } from "../models/node";
 import { NodeType } from "../models/nodeType";
 import { Stack } from "../models/stack";
+import { ChannelTileComponent } from "../channel-tile/channel-tile.component";
+import { FormsModule } from "@angular/forms";
+import { SortButtonComponent } from "./sort-button/sort-button.component";
+import { NgIf, NgClass, NgFor } from "@angular/common";
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.css",
-  animations: [
-    trigger("fadeInOut", [
-      transition(":enter", [
-        style({ opacity: 0, height: 0, padding: "0", margin: "0" }),
-        animate("250ms", style({ opacity: 1, height: "*", padding: "*", margin: "*" })),
-      ]),
-      transition(":leave", [
-        style({ opacity: 1, height: "*", padding: "*", margin: "*" }),
-        animate("250ms", style({ opacity: 0, height: 0, padding: "0", margin: "0" })),
-      ]),
-    ]),
-    trigger("fade", [
-      state(
-        "visible",
-        style({
-          opacity: 1,
-        }),
-      ),
-      state(
-        "hidden",
-        style({
-          opacity: 0,
-        }),
-      ),
-      transition("visible => hidden", [animate("250ms ease-out")]),
-      transition("hidden => visible", [animate("250ms ease-in")]),
-    ]),
-  ],
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styleUrl: "./home.component.css",
+    animations: [
+        trigger("fadeInOut", [
+            transition(":enter", [
+                style({ opacity: 0, height: 0, padding: "0", margin: "0" }),
+                animate("250ms", style({ opacity: 1, height: "*", padding: "*", margin: "*" })),
+            ]),
+            transition(":leave", [
+                style({ opacity: 1, height: "*", padding: "*", margin: "*" }),
+                animate("250ms", style({ opacity: 0, height: 0, padding: "0", margin: "0" })),
+            ]),
+        ]),
+        trigger("fade", [
+            state("visible", style({
+                opacity: 1,
+            })),
+            state("hidden", style({
+                opacity: 0,
+            })),
+            transition("visible => hidden", [animate("250ms ease-out")]),
+            transition("hidden => visible", [animate("250ms ease-in")]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        KeyboardShortcutsModule,
+        NgIf,
+        SortButtonComponent,
+        NgClass,
+        FormsModule,
+        NgFor,
+        ChannelTileComponent,
+    ],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   channels: Channel[] = [];

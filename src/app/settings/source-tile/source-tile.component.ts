@@ -4,17 +4,26 @@ import { SourceType } from "../../models/sourceType";
 import { invoke } from "@tauri-apps/api/core";
 import { MemoryService } from "../../memory.service";
 import { EditChannelModalComponent } from "../../edit-channel-modal/edit-channel-modal.component";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
 import { EditGroupModalComponent } from "../../edit-group-modal/edit-group-modal.component";
 import { ImportModalComponent } from "../../import-modal/import-modal.component";
 import { open, save } from "@tauri-apps/plugin-dialog";
 import { CHANNEL_EXTENSION, FAVS_BACKUP, PLAYLIST_EXTENSION } from "../../models/extensions";
 import { sanitizeFileName } from "../../utils";
+import { FormsModule } from "@angular/forms";
+import { NgIf, NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-source-tile",
-  templateUrl: "./source-tile.component.html",
-  styleUrl: "./source-tile.component.css",
+    selector: "app-source-tile",
+    templateUrl: "./source-tile.component.html",
+    styleUrl: "./source-tile.component.css",
+    standalone: true,
+    imports: [
+        NgIf,
+        NgClass,
+        FormsModule,
+        NgbTooltip,
+    ],
 })
 export class SourceTileComponent {
   @Input("source")

@@ -5,7 +5,6 @@
   "build": {
     "frontendDist": "../dist/open-tv/browser",
     "devUrl": "http://localhost:4200",
-    "beforeDevCommand": "npm run start",
     "beforeBuildCommand": "ng build --configuration=production"
   },
   "app": {

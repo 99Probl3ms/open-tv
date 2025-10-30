@@ -1,4 +1,5 @@
 import { MediaType } from "./mediaType";
+import { EPG } from "./epg";
 
 export class Channel {
   id?: number;
@@ -11,4 +12,5 @@ export class Channel {
   favorite?: boolean;
   stream_id?: number;
   tv_archive?: boolean;
+  current_epg?: EPG;
 }

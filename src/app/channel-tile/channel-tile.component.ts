@@ -147,6 +147,32 @@ export class ChannelTileComponent implements OnDestroy, AfterViewInit {
     this.matMenuTrigger.openMenu();
   }
 
+  onMenuClick(event: MouseEvent) {
+    event.stopPropagation();
+    this.onRightClick(event);
+  }
+
+  getMediaTypeLabel(): string {
+    switch (this.channel?.media_type) {
+      case MediaType.livestream:
+        return 'LIVE';
+      case MediaType.movie:
+        return 'MOVIE';
+      case MediaType.serie:
+        return 'SERIES';
+      case MediaType.group:
+        return 'GROUP';
+      case MediaType.season:
+        return 'SEASON';
+      default:
+        return 'STREAM';
+    }
+  }
+
+  getSubtitle(): string {
+    return 'Todo: EPG now playing';
+  }
+
   onError(event: Event) {
     this.showImage = false;
   }
